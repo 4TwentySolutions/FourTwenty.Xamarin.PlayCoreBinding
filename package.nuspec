@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>FourTwenty.Xamarin.PlayCoreBinding</id>
+    <version>1.0.0</version>
+    <title>FourTwenty.Xamarin.PlayCoreBinding</title>
+    <authors>Anton Yaroshenko, Pavel Kurianov, 4Twenty Solutions</authors>
+    <owners>4Twenty Solutions</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/4TwentySolutions/FourTwenty.Xamarin.PlayCoreBinding</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Binding for Play Core library<description>
+    <releaseNotes>$notes$</releaseNotes>
+    <copyright>Copyright 2019 4Twenty Solutions</copyright>
+    <tags>android, xamarin.android, binding</tags>
+	<icon>logo_small.png</icon>
+	<iconUrl>https://github.com/4TwentySolutions/FourTwenty.Xamarin.PlayCoreBinding/raw/master/logo_small.png</iconUrl>   
+    <summary></summary>
+  </metadata>
+  <files>
+	<file src="FourTwenty.Xamarin.PlayCoreBinding\bin\Release\FourTwenty.Xamarin.PlayCoreBinding.dll" target="lib\MonoAndroid90" /> 
+	<file src="FourTwenty.Xamarin.PlayCoreBinding\bin\Release\FourTwenty.Xamarin.PlayCoreBinding.pdb" target="lib\MonoAndroid90" />
+	<file src="logo_small.png" target="" />    	
+  </files>
+</package>
