@@ -9,7 +9,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/4TwentySolutions/FourTwenty.Xamarin.PlayCoreBinding</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Binding for Play Core library<description>
+    <description>Binding for Play Core library</description>
     <releaseNotes>$notes$</releaseNotes>
     <copyright>Copyright 2019 4Twenty Solutions</copyright>
     <tags>android, xamarin.android, binding</tags>
