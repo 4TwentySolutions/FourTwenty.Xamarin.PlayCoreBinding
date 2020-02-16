@@ -7,6 +7,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Com.Google.Android.Play.Core.Appupdate;
+using Com.Google.Android.Play.Core.Install;
 using Com.Google.Android.Play.Core.Install.Model;
 using Com.Google.Android.Play.Core.Tasks;
 using Object = Java.Lang.Object;
@@ -29,6 +30,13 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
             fab.Click += FabOnClick;
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            CheckForUpdates();
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
@@ -48,7 +56,7 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
 
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
-            
+
             CheckForUpdates();
             View view = (View)sender;
             Snackbar.Make(view, "Checking for updates", Snackbar.LengthLong)
@@ -94,12 +102,19 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
             public void OnSuccess(Object p0)
             {
                 if (!(p0 is AppUpdateInfo info)) return;
-                if (info.UpdateAvailability() != UpdateAvailability.UpdateAvailable ||
-                    !info.IsUpdateTypeAllowed(AppUpdateType.Flexible)) return;
 
-                if (_appUpdateManager.StartUpdateFlowForResult(info, AppUpdateType.Flexible, _mainActivity, 1234))
+
+                var availability = info.UpdateAvailability();
+                if (availability != UpdateAvailability.UpdateAvailable ||
+                    !info.IsUpdateTypeAllowed(AppUpdateType.Immediate))
                 {
-                   // _mainActivity.
+                    if (availability != UpdateAvailability.DeveloperTriggeredUpdateInProgress)
+                        return;
+                }
+
+                if (_appUpdateManager.StartUpdateFlowForResult(info, AppUpdateType.Immediate, _mainActivity, 1234))
+                {
+                    // _mainActivity.
                 }
             }
         }
