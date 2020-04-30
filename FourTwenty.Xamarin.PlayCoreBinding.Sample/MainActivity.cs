@@ -10,6 +10,7 @@ using Com.Google.Android.Play.Core.Appupdate;
 using Com.Google.Android.Play.Core.Install;
 using Com.Google.Android.Play.Core.Install.Model;
 using Com.Google.Android.Play.Core.Tasks;
+using Exception = Java.Lang.Exception;
 using Object = Java.Lang.Object;
 
 namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
@@ -59,8 +60,8 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
 
             CheckForUpdates();
             View view = (View)sender;
-            Snackbar.Make(view, "Checking for updates", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
+            Snackbar.Make(Window.DecorView.RootView, "Checking for updates", Snackbar.LengthLong)
+                .SetAction("Ok", (v)=>{}).Show();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -80,14 +81,34 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
         }
 
 
+        private void OnError(string error)
+        {
+            Snackbar.Make(Window.DecorView.RootView, error, Snackbar.LengthLong)
+                .SetAction("Ok", (v)=>{}).Show();
+        }
+
         private void CheckForUpdates()
         {
+
             var appUpdateManager = GetManager();
             // Returns an intent object that you use to check for an update.
             var appUpdateInfoTask = appUpdateManager.AppUpdateInfo;
             appUpdateInfoTask.AddOnSuccessListener(new AppUpdateSuccessListener(appUpdateManager, this));
+            appUpdateInfoTask.AddOnFailureListener(new AppUpdateFailureListener(this));
         }
 
+        private class AppUpdateFailureListener : Java.Lang.Object, IOnFailureListener
+        {
+            private readonly MainActivity _mainActivity;
+            public AppUpdateFailureListener(MainActivity mainActivity)
+            {
+                _mainActivity = mainActivity;
+            }
+            public void OnFailure(Exception p0)
+            {
+                _mainActivity.OnError(p0.LocalizedMessage ?? p0.Message ?? p0.ToString());
+            }
+        }
         private class AppUpdateSuccessListener : Java.Lang.Object, IOnSuccessListener
         {
             private readonly IAppUpdateManager _appUpdateManager;
