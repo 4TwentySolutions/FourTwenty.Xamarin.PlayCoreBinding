@@ -3,13 +3,14 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
-using Android.Support.V7.App;
 using Android.Views;
+using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.Widget;
 using Com.Google.Android.Play.Core.Appupdate;
-using Com.Google.Android.Play.Core.Install;
 using Com.Google.Android.Play.Core.Install.Model;
 using Com.Google.Android.Play.Core.Tasks;
+using Google.Android.Material.FloatingActionButton;
+using Google.Android.Material.Snackbar;
 using Exception = Java.Lang.Exception;
 using Object = Java.Lang.Object;
 
@@ -24,7 +25,7 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
             //Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
@@ -60,7 +61,7 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
 
             CheckForUpdates();
             View view = (View)sender;
-            Snackbar.Make(Window.DecorView.RootView, "Checking for updates", Snackbar.LengthLong)
+            Snackbar.Make(Window.DecorView.RootView, "Checking for updates", BaseTransientBottomBar.LengthLong)
                 .SetAction("Ok", (v)=>{}).Show();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -83,7 +84,7 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
 
         private void OnError(string error)
         {
-            Snackbar.Make(Window.DecorView.RootView, error, Snackbar.LengthLong)
+            Snackbar.Make(Window.DecorView.RootView, error, BaseTransientBottomBar.LengthLong)
                 .SetAction("Ok", (v)=>{}).Show();
         }
 
