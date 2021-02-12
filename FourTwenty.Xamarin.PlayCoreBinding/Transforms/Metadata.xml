@@ -14,9 +14,11 @@
     <attr path="/api/package[@name='com.google.android.play.core.tasks']/class[@name='RuntimeExecutionException']" name="extends">Java.Lang.Object</attr>
     <attr path="/api/package[@name='com.google.android.play.core.listener']/interface[@name='StateUpdatedListener']/method[@name='onStateUpdate' and count(parameter)=1 and parameter[1][@type='StateT']]/parameter[1]" name="type">Java.Lang.Object</attr>
     
-    <attr path="/api/package[@name='com.google.android.play.core.assetpacks']/class[@name='AssetPackException']" name="extends">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.google.android.play.core.assetpacks']/class[@name='AssetPackException']" name="extends">Java.Lang.Exception</attr>
 
-    <attr path="/api/package[@name='com.google.android.play.core.assetpacks']/ class[@name='NativeAssetPackStateUpdateListener']/ method[@name='onStateUpdate' and count(parameter)=1 and parameter[1][@type='com.google.android.play.core.assetpacks.AssetPackState']]/ parameter[1]" name="managedType"> Java.Lang.Object </attr> 
+    <attr path="/api/package[@name='com.google.android.play.core.install']/class[@name='InstallException']" name="extends">Java.Lang.Exception</attr>
+
+	<attr path="/api/package[@name='com.google.android.play.core.assetpacks']/ class[@name='NativeAssetPackStateUpdateListener']/ method[@name='onStateUpdate' and count(parameter)=1 and parameter[1][@type='com.google.android.play.core.assetpacks.AssetPackState']]/ parameter[1]" name="managedType"> Java.Lang.Object </attr> 
     <remove-node path="/api/package[@name='com.google.android.play.core.tasks']/class[@name='NativeOnCompleteListener']"/>
 
 </metadata>
