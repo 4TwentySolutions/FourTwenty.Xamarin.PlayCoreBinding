@@ -10,7 +10,7 @@ namespace Com.Google.Android.Play.Core.Tasks
     {
 
         static readonly JniPeerMembers _members = new XAPeerMembers("com/google/android/play/core/tasks/NativeOnCompleteListener", typeof(NativeOnCompleteListener));
-        internal static new IntPtr class_ref
+        internal new static IntPtr class_ref
         {
             get
             {

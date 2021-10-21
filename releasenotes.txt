@@ -1,1 +1,1 @@
-Initial release
+Updated to 1.10.2
