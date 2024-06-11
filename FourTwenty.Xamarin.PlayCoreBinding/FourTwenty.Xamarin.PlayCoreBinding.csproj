@@ -8,6 +8,21 @@
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+
+	<PackageId>FourTwenty.Xamarin.PlayCoreBinding</PackageId>
+	<Version>1.0.0</Version>
+	<Authors>Anton Yaroshenko, Pavel Kurianov, 4Twenty Solutions</Authors>
+	<Company>4Twenty Solutions</Company>
+	<Title>FourTwenty.Xamarin.PlayCoreBinding</Title>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageProjectUrl>https://github.com/4TwentySolutions/FourTwenty.Xamarin.PlayCoreBinding</PackageProjectUrl>
+	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	<Description>Binding for Play Core library</Description>
+	<PackageReleaseNotes>$notes$</PackageReleaseNotes>
+	<Copyright>Copyright 2019 4Twenty Solutions</Copyright>
+	<PackageTags>android, xamarin.android, binding</PackageTags>
+	<PackageIcon>logo_small.png</PackageIcon>
+	<PackageIconUrl>https://github.com/4TwentySolutions/FourTwenty.Xamarin.PlayCoreBinding/raw/master/logo_small.png</PackageIconUrl>	  
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
