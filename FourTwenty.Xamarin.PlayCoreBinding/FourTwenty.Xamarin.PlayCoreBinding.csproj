@@ -50,6 +50,9 @@
     <None Remove="Jars\core-1.9.1.aar" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\logo_small.png" Link="logo_small.png" Pack="true" PackagePath=""/>    
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
     <LibraryProjectZip Include="Jars\app-update-2.1.0.aar" />
