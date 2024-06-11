@@ -1,18 +1,16 @@
-﻿using System;
-using Android.App;
-using Android.Content;
-using Android.OS;
+﻿using Android.Content;
+using Android.Gms.Tasks;
 using Android.Runtime;
 using Android.Views;
 using AndroidX.AppCompat.App;
-using AndroidX.AppCompat.Widget;
 using Com.Google.Android.Play.Core.Appupdate;
 using Com.Google.Android.Play.Core.Install.Model;
-using Com.Google.Android.Play.Core.Tasks;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Exception = Java.Lang.Exception;
 using Object = Java.Lang.Object;
+using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
+using View = Android.Views.View;
 
 namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
 {
