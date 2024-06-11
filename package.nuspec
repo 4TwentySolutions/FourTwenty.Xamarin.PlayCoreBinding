@@ -18,8 +18,8 @@
     <summary></summary>
   </metadata>
   <files>
-	<file src="FourTwenty.Xamarin.PlayCoreBinding\bin\Release\FourTwenty.Xamarin.PlayCoreBinding.dll" target="lib\MonoAndroid90" /> 
-	<file src="FourTwenty.Xamarin.PlayCoreBinding\bin\Release\FourTwenty.Xamarin.PlayCoreBinding.pdb" target="lib\MonoAndroid90" />
+	<file src="FourTwenty.Xamarin.PlayCoreBinding\bin\Release\net8.0-android\FourTwenty.Xamarin.PlayCoreBinding.dll" target="lib\net8.0-android" /> 
+	<file src="FourTwenty.Xamarin.PlayCoreBinding\bin\Release\net8.0-android\FourTwenty.Xamarin.PlayCoreBinding.pdb" target="lib\net8.0-android" />
 	<file src="logo_small.png" target="" />    	
   </files>
 </package>
