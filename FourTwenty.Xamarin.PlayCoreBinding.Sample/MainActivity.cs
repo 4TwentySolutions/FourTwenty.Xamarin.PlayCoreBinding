@@ -3,10 +3,10 @@ using Android.Gms.Tasks;
 using Android.Runtime;
 using Android.Views;
 using AndroidX.AppCompat.App;
-using Com.Google.Android.Play.Core.Appupdate;
-using Com.Google.Android.Play.Core.Install.Model;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
+using Xamarin.Google.Android.Play.Core.AppUpdate;
+using Xamarin.Google.Android.Play.Core.AppUpdate.Install.Model;
 using Exception = Java.Lang.Exception;
 using Object = Java.Lang.Object;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
@@ -17,17 +17,19 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             //Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
+            Toolbar? toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            if (toolbar != null)
+                SetSupportActionBar(toolbar);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+            FloatingActionButton? fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            if (fab != null)
+                fab.Click += FabOnClick;
         }
 
         protected override void OnResume()
@@ -37,7 +39,7 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
             CheckForUpdates();
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
+        public override bool OnCreateOptionsMenu(IMenu? menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
             return true;
@@ -54,13 +56,18 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
             return base.OnOptionsItemSelected(item);
         }
 
-        private void FabOnClick(object sender, EventArgs eventArgs)
+        private void FabOnClick(object? sender, EventArgs eventArgs)
         {
+
+            if (sender is null)
+                return;
 
             CheckForUpdates();
             View view = (View)sender;
+            if (Window?.DecorView.RootView is null)
+                return;
             Snackbar.Make(Window.DecorView.RootView, "Checking for updates", BaseTransientBottomBar.LengthLong)
-                .SetAction("Ok", (v)=>{}).Show();
+                .SetAction("Ok", (v) => { }).Show();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -82,8 +89,10 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
 
         private void OnError(string error)
         {
+            if (Window?.DecorView.RootView is null)
+                return;
             Snackbar.Make(Window.DecorView.RootView, error, BaseTransientBottomBar.LengthLong)
-                .SetAction("Ok", (v)=>{}).Show();
+                .SetAction("Ok", (v) => { }).Show();
         }
 
         private void CheckForUpdates()
@@ -125,14 +134,14 @@ namespace FourTwenty.Xamarin.PlayCoreBinding.Sample
 
 
                 var availability = info.UpdateAvailability();
-                if (availability != UpdateAvailability.UpdateAvailable ||
-                    !info.IsUpdateTypeAllowed(AppUpdateType.Immediate))
+                if (availability != IUpdateAvailability.UpdateAvailable ||
+                    !info.IsUpdateTypeAllowed(IAppUpdateType.Immediate))
                 {
-                    if (availability != UpdateAvailability.DeveloperTriggeredUpdateInProgress)
+                    if (availability != IUpdateAvailability.DeveloperTriggeredUpdateInProgress)
                         return;
                 }
 
-                if (_appUpdateManager.StartUpdateFlowForResult(info, AppUpdateType.Immediate, _mainActivity, 1234))
+                if (_appUpdateManager.StartUpdateFlowForResult(info, _mainActivity, AppUpdateOptions.DefaultOptions(IAppUpdateType.Immediate), 1234))
                 {
                     // _mainActivity.
                 }

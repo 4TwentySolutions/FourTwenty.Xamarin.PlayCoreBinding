@@ -81,15 +81,6 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\FourTwenty.Xamarin.PlayCoreBinding\FourTwenty.Xamarin.PlayCoreBinding.csproj">
-			<Project>{b66d7a48-288b-4f55-bd21-51fb31f1b04e}</Project>
-			<Name>FourTwenty.Xamarin.PlayCoreBinding</Name>
-		</ProjectReference>
+	  <ProjectReference Include="..\FourTwenty.Xamarin.PlayCore.AppUpdateBinding\FourTwenty.Xamarin.PlayCore.AppUpdateBinding.csproj" />
 	</ItemGroup>
-	<!--<ItemGroup>
-		<PackageReference Update="Microsoft.Maui.Controls" Version="8.0.40" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
-	</ItemGroup>-->
 </Project>

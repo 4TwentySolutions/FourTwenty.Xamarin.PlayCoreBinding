@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29728.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourTwenty.Xamarin.PlayCoreBinding", "FourTwenty.Xamarin.PlayCoreBinding\FourTwenty.Xamarin.PlayCoreBinding.csproj", "{B66D7A48-288B-4F55-BD21-51FB31F1B04E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourTwenty.Xamarin.PlayCore.AppUpdateBinding", "FourTwenty.Xamarin.PlayCore.AppUpdateBinding\FourTwenty.Xamarin.PlayCore.AppUpdateBinding.csproj", "{B66D7A48-288B-4F55-BD21-51FB31F1B04E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourTwenty.Xamarin.PlayCoreBinding.Sample", "FourTwenty.Xamarin.PlayCoreBinding.Sample\FourTwenty.Xamarin.PlayCoreBinding.Sample.csproj", "{21A83581-1C64-4F76-8753-881EA47A8153}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourTwenty.Xamarin.PlayCoreBinding.Sample", "FourTwenty.Xamarin.PlayCoreBinding.Sample\FourTwenty.Xamarin.PlayCoreBinding.Sample.csproj", "{21A83581-1C64-4F76-8753-881EA47A8153}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
